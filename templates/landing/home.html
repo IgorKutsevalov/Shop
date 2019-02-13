@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+    <div class="section-top" style="margin: 0">
+        <img src="{% static 'static_dev/img/3.jpg' %}" class="img-responsive">
+
+    </div>
+    <h1></h1>
+    <div class="section section1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <a id="new-models"></a>
+                    <h1 class="text-center">
+                        Новые поступления
+                    </h1>
+                </div>
+                {% for product_image in products_images %}
+                    {% if product_image.product.new_models %}
+                        {% include 'landing/product_item.html' %}
+                    {% endif %}
+                {% endfor %}
+
+
+
+            </div>
+        </div>
+    </div>
+    <h1></h1>
+    <div class="section section-delivery">
+        <div class="parallax-window" data-parallax="scroll" data-image-src="/static/Static_dev/img/Samsung-4.jpg">
+        <br><br>
+            <h class="title">"Бесплатная доставка!"</h>
+                        <h1>На все Новые поступления</h1>
+        </div>
+    </div>
+
+    <div class="section section2 phones-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <a id="phone"></a>
+                    <h1 class="text-center">
+                        Телефоны
+                    </h1>
+                </div>
+
+                {% for product_image in products_images_phones %}
+                    {% include 'landing/product_item.html' %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    <h1></h1>
+    <div class="section section3 laptops-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <a id="laptops"></a>
+                    <h1 class="text-center">
+                        Планшеты
+                    </h1>
+                </div>
+
+                {% for product_image in products_images_laptops %}
+                    {% include 'landing/product_item.html' %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    <h1></h1>
+    <div class="section section2 watches-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <a id="watches"></a>
+                    <h1 class="text-center">
+                        Часы наручные
+                    </h1>
+                </div>
+
+                {% for product_image in products_images_watches %}
+                    {% include 'landing/product_item.html' %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    <h1></h1>
+{% endblock content %}

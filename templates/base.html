@@ -1,0 +1,58 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Интернет магазин</title>
+
+    <!-- Bootstrap-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i" rel="stylesheet">
+
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+
+    <link rel="icon" href="{% static 'static_dev/img/Phone.png' %}">
+
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" type="text/css" href="{% static 'static_dev/css/style.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'static_dev/css/font-awesome.css' %}">
+
+    <link href="https://fonts.googleapis.com/css?family=Cuprum" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700i" rel="stylesheet">
+
+
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="wrapper-content">
+            {% include 'navbar.html' %}
+
+            {% block content %}
+
+            {% endblock content%}
+        </div>
+    </div>
+    {% include 'footer.html' %}
+
+
+
+    <!--jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <script src="{% static 'static_dev/js/scripts.js' %}"></script>
+
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+    <script src="{% static 'static_dev/js/parallax.js' %}"></script>
+
+</body>
+</html>

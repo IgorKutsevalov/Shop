@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6"><br>
+                <div class="slider">
+                {% for image_item in product.productimage_set.all %}
+                    <div class="product-image-item">
+                        <img src="{{ image_item.image.url }}" class="img-responsive">
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <h1 class="text-center">
+                    {{ product.name }}
+                </h1>
+                <div class="">
+                    <p>
+                        <h4>Цена: {{ product.price }} UAH</h4>
+                    </p>
+                </div>
+                <div>
+
+                        <!-- Nav tabs -->
+                      <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="/#description" aria-controls="home" role="tab" data-toggle="tab">
+                            Описание
+                            </a>
+                        </li>
+                         <li role="presentation">
+                             <a href="/#short-description" aria-controls="messages" role="tab" data-toggle="tab">
+                                 Характеристика</a></li>
+                        <li role="presentation">
+                            <a href="/#delivery" aria-controls="profile" role="tab" data-toggle="tab">
+                                Доставка
+                            </a>
+                        </li>
+                        <li role="presentation"><a href="/#settings" aria-controls="settings" role="tab" data-toggle="tab">Отзывы</a></li>
+                      </ul>
+
+                      <!-- Tab panes -->
+                      <div class="tab-content product-description-tabs">
+                        <div role="tabpanel" class="tab-pane active" id="description">
+                            {{ product.description }}
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="delivery">
+                            {% if product.new_models == True %}
+                            <h4>Акция "Бесплатная доставка"</h4>
+                            {% else %}
+                            <h5>Доставка в течении 14 дней</h5>
+                            <h5>Стоимость доставки - 55 грн.</h5>
+                            {% endif %}
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="short-description">
+                            {{ product.short_description }}
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="settings">
+                            Здесь будут ваши комментарии
+                        </div>
+                      </div>
+                </div>
+                <div>
+                    <form id="form_buying_product" class="form-inline" action="{% url 'basket_adding' %}">{% csrf_token %}
+                        <div class="form-group">
+                            <input type="number" class="form-control" name="number" id="number">
+                        </div>
+                            <div class="form-group">
+                                <button type="submit" id="submit_btn" class="btn btn-primary btn-buy"
+                                    data-product_id = "{{ product.id }}"
+                                    data-name = "{{ product.name }}"
+                                    data-price = "{{ product.price }}">
+                                    Добавить в корзину
+                                </button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

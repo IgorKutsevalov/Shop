@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="9f472dbd-1b9c-439b-8cc8-1249a2b0a51e" name="Интернет Магазин" url="http://kutsevalov1984.myjino.ru">
+        <fileTransfer host="kutsevalov1984.myjino.ru" port="22" rootFolder="/home/users/k/kutsevalov1984" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

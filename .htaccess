@@ -1,0 +1,15 @@
+AddDefaultCharset utf-8
+
+#Options +ExecCGI
+
+<FileMatch "\.(png|gif|jpg|jpeg|ico|css|js)$">
+SetHandler None
+</FileMatch>
+
+AddHandler wsgi-script .py
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ /wsgi.py/$1 [QSA,PT,L]
+
+#RewriteRule ^(static/.*)$ - [L]
+#RewriteRule ^(media/.*)$ - [L]
